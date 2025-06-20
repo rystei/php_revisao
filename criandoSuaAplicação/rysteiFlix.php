@@ -11,6 +11,10 @@ function exibeMensagemLancamento($ano)
     }
 }
 
+function incluidoNoPlano($planoPrime, $anoLancamento){
+    return $planoPrime || $anoLancamento < 2020;
+}
+
 echo "Bem-vindo(a) ao rysteiFlix sua plataforma de Streamer \n";
 
 $nomeFilme = "Top Gun - Maverick";
@@ -29,7 +33,7 @@ for ($contador = 1; $contador < $argc; $contador++) {
 $notaFilme = array_sum($notas) / $quantidadeDeNotas;
 $planoPrime = true;
 
-$incluidoNoPlano = $planoPrime || $anoLancamento < 2020;
+$incluidoNoPlano = incluidoNoPlano($planoPrime, $anoLancamento);
 
 echo "Nome do filme: " . $nomeFilme, "\n";
 echo "Nota do filme: " . $notaFilme, "\n";
